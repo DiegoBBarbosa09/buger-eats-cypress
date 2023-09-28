@@ -3,6 +3,8 @@ name: Cypress Testes Regressao
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]  
   schudule:
     - cron: '0 10 * * 1,2,3,4,5'
 
@@ -12,19 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v3
+    - name: Install modules
+      run: npm install  
+
+  cypress-test:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v4
+        uses: actions/checkout@v3
+      - name: Run end-to-end testes
+        uses: cypress-io/github-action@v5
         with:
-          command: npm run cypress run
-          wait-on: ${{ secrets.BASE_URL }}
-          wait-on-timeout: 120
-          browser: chrome
-          record: true
-          group: 'UI - Chrome'
-          spec: cypress/integration/*
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          command: npm test  
