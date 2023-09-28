@@ -8,19 +8,17 @@ on:
 
 jobs:
 
-  ui-chrome-tests:
+  cypress-run:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.17.0-chrome88-ff89
-    strategy:
-      fail-fast: false
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       
       - name: 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
-          install-command: yarn install
+          command: npm run cypress run
           wait-on: ${{ secrets.BASE_URL }}
           wait-on-timeout: 120
           browser: chrome
