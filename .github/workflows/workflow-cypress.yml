@@ -1,6 +1,10 @@
 name: Cypress Testes Regressao
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  schudule:
+    - cron: '0 10 * * 1,2,3,4,5'
 
 jobs:
 
