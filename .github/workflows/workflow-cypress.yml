@@ -2,12 +2,13 @@ name: Cypress Testes Regressao
 
 on:
   push:
-    branches: [ main ]
-  schudule:
-    - cron: '0 10 * * 1,2,3,4,5'
+    branches:
+      - main
+  schedule:    
+    - cron: '0 9 * * *'
+  workflow_dispatch:  
 
 jobs:
-
   ui-chrome-tests:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome88-ff89
