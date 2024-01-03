@@ -18,16 +18,20 @@ O projeto tem como objetivo realizar testes automatizados E2E para garantir a in
 2. Clone este repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
 3. Acesse o diretório do projeto: `cd nome-do-repositorio`
 4. Instale as dependências: `npm install`
-
+   
 ### Execução dos Testes
 
 Para executar os testes:
 
-```bash
+```
 npm run cy:test
+```
 //Modo headless
 
+
+```
 npm run cy:open
+```
 //Modo interativo 
 
 
