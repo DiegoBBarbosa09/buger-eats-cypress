@@ -4,7 +4,8 @@
   "description": "Projeto de testes de aceitação do app BugerEats",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "cy:test": "cypress run"
+    "cy:open": "cypress open"
   },
   "keywords": [],
   "author": "Diego Brito",
