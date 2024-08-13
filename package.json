@@ -4,16 +4,31 @@
   "description": "Projeto de testes de aceitação do app BugerEats",
   "main": "index.js",
   "scripts": {
-    "cy:test": "cypress run"
-    "cy:open": "cypress open"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "cy:test": "eslint && cypress run",
+    "cy:open": "eslint && cypress open"
   },
   "keywords": [],
   "author": "Diego Brito",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "9.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.9.0",
+    "@faker-js/faker": "^8.4.1",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "cypress": "^13.13.2",
     "cypress-file-upload": "^5.0.8",
-    "faker": "^6.6.6",
-    "gerador-validador-cpf": "^5.0.2"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-multi-reporters": "^1.6.4",
+    "cypress-terminal-report": "^6.1.2",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-cypress": "^3.3.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "faker": "^5.5.3",
+    "gerador-validador-cpf": "^5.0.2",
+    "mocha-junit-reporter": "^2.2.1",
+    "prettier": "^3.3.3"
   }
 }

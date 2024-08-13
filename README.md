@@ -23,18 +23,16 @@ O projeto tem como objetivo realizar testes automatizados E2E para garantir a in
 
 Para executar os testes:
 
+//Modo headless
 ```
 npm run cy:test
 ```
-//Modo headless
 
 
+//Modo interativo 
 ```
 npm run cy:open
 ```
-//Modo interativo 
 
 
-
-
-
+Após a execução dos testes é possivel visualizar na pasta 'report' o report gerado pelo 'Mocha'. 
