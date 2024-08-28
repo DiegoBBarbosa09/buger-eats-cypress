@@ -35,13 +35,6 @@ class SignupPage {
     cy.contains('.delivery-method li', deliver.delivery_method).click();
     /*************Anexar CNH*************/
     cy.get('input[accept^="image"]').attachFile('/images/' + deliver.cnh);
-    /*    ^  ==  Começa com - pega o começo do texto
-                          cy.contains('input[accept^="image"]', entregador.cnh).click()
-                               $  == Termina com - pega o final do teto 
-                         cy.contains('input[accept^="image"]', entregador.cnh).click()
-                              * == Contain - contem um pedaço do texto
-                         cy.contains('input[accept*="image"]', entregador.cnh).click()               
-                         */
   }
 
   submit() {
@@ -56,7 +49,6 @@ class SignupPage {
     );
   }
   alertMessageShouldBe(expectedMessage) {
-    //cy.get('.alert-error').should('have.text', expectedMessage)
     cy.contains('.alert-error', expectedMessage).should('be.visible');
   }
 }

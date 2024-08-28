@@ -17,6 +17,8 @@
 import './commands';
 import 'cypress-file-upload';
 import './beforeCommands/home';
+require('cypress-terminal-report/src/installLogsCollector')();
+require('@shelex/cypress-allure-plugin');
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

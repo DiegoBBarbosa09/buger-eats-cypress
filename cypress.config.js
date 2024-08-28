@@ -1,5 +1,6 @@
 const { defineConfig } = require('cypress');
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+//const { allureCypress } = require('allure-cypress/reporter');
 const installLogsPrinter = require('cypress-terminal-report/src/installLogsPrinter');
 
 module.exports = defineConfig({
@@ -12,10 +13,14 @@ module.exports = defineConfig({
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
       allureWriter(on, config);
+      //allureCypress(on);
       installLogsPrinter(on, {
         printLogsToConsole: 'always',
       });
       return config;
+    },
+    env: {
+      allureReuseAfterSpec: true,
     },
     baseUrl: 'https://buger-eats-qa.vercel.app',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
