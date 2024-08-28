@@ -6,6 +6,8 @@ on:
       - main
   schedule:
     - cron: '0 8 * * 1-5' # Executa de segunda a sexta-feira às 8h (UTC)
+permissions:
+  contents: write
 
 jobs:
   cypress-run:
@@ -16,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Step 2 - Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
 
@@ -35,3 +37,10 @@ jobs:
         with:
           name: report allure
           path: allure-report
+
+      - name: Step 7 - publish report
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: report_page_BE_cypress
+          publish_dir: allure-report
