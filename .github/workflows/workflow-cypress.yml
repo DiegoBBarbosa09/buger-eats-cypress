@@ -8,7 +8,7 @@ on:
     - cron: '0 8 * * 1-5' # Executa de segunda a sexta-feira às 8h (UTC)
 
 jobs:
-  cypress-run: E2E cypress ci
+  cypress-run:
     runs-on: ubuntu-latest
 
     steps:
